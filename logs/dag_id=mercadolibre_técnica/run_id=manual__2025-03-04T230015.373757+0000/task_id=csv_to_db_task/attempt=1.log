@@ -1,0 +1,15 @@
+[2025-03-04T23:00:19.080+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mercadolibre_técnica.csv_to_db_task manual__2025-03-04T23:00:15.373757+00:00 [queued]>
+[2025-03-04T23:00:19.093+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mercadolibre_técnica.csv_to_db_task manual__2025-03-04T23:00:15.373757+00:00 [queued]>
+[2025-03-04T23:00:19.095+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-03-04T23:00:19.116+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): csv_to_db_task> on 2025-03-04 23:00:15.373757+00:00
+[2025-03-04T23:00:19.121+0000] {standard_task_runner.py:60} INFO - Started process 12622 to run task
+[2025-03-04T23:00:19.125+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'mercadolibre_técnica', 'csv_to_db_task', 'manual__2025-03-04T23:00:15.373757+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/pl_mltest.py', '--cfg-path', '/tmp/tmp3nsuy_ox']
+[2025-03-04T23:00:19.129+0000] {standard_task_runner.py:88} INFO - Job 13: Subtask csv_to_db_task
+[2025-03-04T23:00:19.189+0000] {task_command.py:423} INFO - Running <TaskInstance: mercadolibre_técnica.csv_to_db_task manual__2025-03-04T23:00:15.373757+00:00 [running]> on host 4a962e98656d
+[2025-03-04T23:00:19.273+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='mercadolibre_técnica' AIRFLOW_CTX_TASK_ID='csv_to_db_task' AIRFLOW_CTX_EXECUTION_DATE='2025-03-04T23:00:15.373757+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-04T23:00:15.373757+00:00'
+[2025-03-04T23:00:19.281+0000] {logging_mixin.py:188} INFO - Nro de items leídos del CSV: 50
+[2025-03-04T23:00:19.343+0000] {logging_mixin.py:188} INFO - Datos subidos a la DB.
+[2025-03-04T23:00:19.345+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-03-04T23:00:19.356+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=mercadolibre_técnica, task_id=csv_to_db_task, execution_date=20250304T230015, start_date=20250304T230019, end_date=20250304T230019
+[2025-03-04T23:00:19.388+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-03-04T23:00:19.406+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

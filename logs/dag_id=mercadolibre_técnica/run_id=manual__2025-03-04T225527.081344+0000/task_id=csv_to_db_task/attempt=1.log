@@ -1,0 +1,32 @@
+[2025-03-04T22:55:29.360+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mercadolibre_técnica.csv_to_db_task manual__2025-03-04T22:55:27.081344+00:00 [queued]>
+[2025-03-04T22:55:29.369+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mercadolibre_técnica.csv_to_db_task manual__2025-03-04T22:55:27.081344+00:00 [queued]>
+[2025-03-04T22:55:29.370+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-03-04T22:55:29.395+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): csv_to_db_task> on 2025-03-04 22:55:27.081344+00:00
+[2025-03-04T22:55:29.401+0000] {standard_task_runner.py:60} INFO - Started process 12448 to run task
+[2025-03-04T22:55:29.406+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'mercadolibre_técnica', 'csv_to_db_task', 'manual__2025-03-04T22:55:27.081344+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/pl_mltest.py', '--cfg-path', '/tmp/tmp03wl11sg']
+[2025-03-04T22:55:29.409+0000] {standard_task_runner.py:88} INFO - Job 11: Subtask csv_to_db_task
+[2025-03-04T22:55:29.469+0000] {task_command.py:423} INFO - Running <TaskInstance: mercadolibre_técnica.csv_to_db_task manual__2025-03-04T22:55:27.081344+00:00 [running]> on host 4a962e98656d
+[2025-03-04T22:55:29.570+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='mercadolibre_técnica' AIRFLOW_CTX_TASK_ID='csv_to_db_task' AIRFLOW_CTX_EXECUTION_DATE='2025-03-04T22:55:27.081344+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-04T22:55:27.081344+00:00'
+[2025-03-04T22:55:29.580+0000] {logging_mixin.py:188} INFO - Nro de items leídos del CSV: 50
+[2025-03-04T22:55:29.639+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/pl_mltest.py", line 89, in csv_to_db
+    cur.execute(
+IndexError: tuple index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/pl_mltest.py", line 109, in csv_to_db
+    raise Exception(f"Error al interactuar con la DB: {str(e)}")
+Exception: Error al interactuar con la DB: tuple index out of range
+[2025-03-04T22:55:29.666+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=mercadolibre_técnica, task_id=csv_to_db_task, execution_date=20250304T225527, start_date=20250304T225529, end_date=20250304T225529
+[2025-03-04T22:55:29.684+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 11 for task csv_to_db_task (Error al interactuar con la DB: tuple index out of range; 12448)
+[2025-03-04T22:55:29.724+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-03-04T22:55:29.748+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
